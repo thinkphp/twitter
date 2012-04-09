@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Useful tweets widget using Yahoo Pipes and some JavaSCript</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <style>
+
+  body{font-family: verdana,sans-serif;font-size: 24px;background: #94E5E9 url(bg.gif) left center no-repeat}
+
+  #mytweet {border: 10px solid #94E5E9;width: 400px;padding: 10px;margin: 4px;background: #fff}
+
+  #mytweet a{text-decoration: none;text-transform: capitalize;color: #000;background: #94E5E9;font-size: 15px;padding: 5px}
+ 
+  #mytweet ul li {list-style: square;color: #94E5E9}
+
+  #mytweet ul li a{
+
+      text-decoration : none;      
+      font-family: arial,sans-serif,verdana;       
+      color: #777;
+      font-size: 17px;
+      text-transform: capitalize;   
+      background: none;
+      font-style: oblique; 
+  }
+
+  #mytweet ul li a:hover{
+
+      color: #000;
+      background: #94E5E9;
+  }
+
+  .first{color: #c00;}
+  .second{color: #0099ff;}
+  </style>
+</head>
+<body>
+<img src="logo.png">
+<center><h1>Useful <span class="first">tweets widget</span> using <span class="second">Yahoo Pipes</span> and some <span class="second">JavaScript</span></h1></center>
+<div id="mytweet" class="user-15106188">
+<a href="http://twitter.com/thinkphp">My useful twitter update</a>
+</div>
+<script type="text/javascript" src="twitterpipe.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+.twtr-widget{font-family: "lucida grande",lucida,tahoma,helvetica,arial,sans-serif !important;font-size: 12px !important;position: relative;}
+
+#twitter .twtr-doc {-moz-border-radius-bottomleft: 5px;-moz-border-radius-bottomright: 5px;-moz-border-radius-topleft: 5px;-moz-border-radius-topright: 5px;font-weight: normal;overflow: hidden;text-align: left;width: 100%;background: #333;}
+
+#twitter .twtr-hd {overflow: hidden;padding: 10px;position: relative;}
+
+.twtr-widget h3, .twtr-widget h4, .twtr-widget p {line-height: 1.2 !important;margin: 0 !important; padding: 0 !important;width: auto !important; color: #fff;} 
+
+.twtr-widget-profile h3.user, .twtr-widget-profile h4.user { margin: 0 0 0 40px !important}
+
+.twtr-widget h3 { font-size: 11px !important; font-weight: inherit !important;}
+
+.twtr-widget h4 {font-size: 16px !important}
+
+.twtr-widget h4 a {color: #fff;text-decoration: none;}
+
+#twitter .twtr-bd {padding: 0 1px;}
+
+.twtr-widget-profile img.twtr-profile-img {border: 0 none !important;display: block;float: left;height: 31px;width: 31px;}
+
+#twitter .twtr-bd {color: #fff !important;}
+
+#twitter .twtr-widget a img {border: 0 none !important;}
+
+#twitter a{text-decoration: none}
+
+#twitter a:hover{text-decoration: underline}
+
+#twitter a.link {color: #00B7FF;}
+
+#twitter .twtr-timeline {-moz-border-radius-bottomleft:6px;-moz-border-radius-bottomright:6px;-moz-border-radius-topleft:6px;-moz-border-radius-topright:6px;height:225px;overflow:hidden;position:relative;z-index:2;padding: 10px}
+
+#twitter .twtr-timeline {-moz-background-clip:border !important;-moz-background-inline-policy:continuous !important;-moz-background-origin:padding !important;background:#000000 none repeat scroll 0 0 !important;}
+
+#twitter .twtr-timeline ul{font-family: "lucida grande",lucida,tahoma,helvetica,arial,sans-serif !important;font-size: 12px !important;position: relative;}
+
+#twitter .twtr-timeline ul {font-family: margin:0;padding:0;font-size:90%;list-style:none;line-height:1.3em;}
+
+#twitter .twtr-timeline ul li {border-bottom: 1px dotted #ccc;padding-bottom:.5em;margin-bottom:.5em; font-size: 14px}
+
+#twitter .twtr-timeline ul li a.time{color: #ccc;font-size: 10px}
+
+#twitter .twtr-ft {position: relative;padding: 10px}
+
+#twitter .twtr-ft span {float:right;text-align:right;}
+
+#twitter .twtr-ft a {float: left;display: block; }
+
+#twitter .twtr-ft div {overflow:hidden;}
+
+#twitter .twtr-ft img {width: 60px;height: 15px;border:0 !important}
+
+#twitter .twtr-ft a.twtr-join-conv {font-size: 10px;text-decoration: none;color: #ccc}
+
+#twitter .twtr-ft a.twtr-join-conv:hover {text-decoration: underline;}
+
+.twtr-widget .twtr-spinner {-moz-background-clip:border;-moz-background-inline-policy:continuous;-moz-background-origin:padding;background:transparent url(http://widgets.twimg.com/j/1/spinner.gif) no-repeat scroll 0 0;height:14px;position:absolute;right:3px;top:3px;width:14px;}

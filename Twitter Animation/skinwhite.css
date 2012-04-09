@@ -1,0 +1,30 @@
+#twitterbadge {
+
+filter:progid:DXImageTransform.Microsoft.alpha(opacity=80);
+-moz-opacity: 0.8;
+width: 300px;
+height: 100px;
+border:1px solid #BBB;          
+padding: 20px;
+background-color: #fff;
+border-radius: 10px;
+-moz-border-radius:10px;
+-webkit-border-radius:10px;
+}
+
+#twitterbadge .twittertext
+{
+font-family: arial;
+font-size: 18px;
+}
+
+.timeZone {
+
+font-family: tahoma,arial,verdana,sans-serif;
+font-size: 12px
+}
+
+#twitterbadge a{
+
+color: #009FFF;
+}

@@ -1,0 +1,13 @@
+      body{
+             font-family:"gill sans",arial,sans-serif;
+             border:3em solid #999;
+             padding:4em;  
+          }
+
+     #twitterbadge{
+      filter:progid:DXImageTransform.Microsoft.alpha(opacity=80);
+      -moz-opacity: 0.8;
+     } 
+     a{color:#369;}
+     h1{font-size:120%;}
+     h2{font-size:110%;}
