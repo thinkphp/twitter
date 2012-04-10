@@ -83,12 +83,7 @@ FORM;
 </head>
 <body>
 <h1>My Mentors</h1>
-<div id="codepo8"></div>
-<div id="ded"></div>
-<div id="davidwalshblog"></div>
-<div id="cpojer"></div>
-<div id="mootools"></div>
-<div id="salexsorin"></div>
+<?php echo$thedivs; ?>
 <div id="ft"><p>written by @<a href="http://twitter.com/thinkphp">thinkphp</a></p></div>
 </body>
 </html>
