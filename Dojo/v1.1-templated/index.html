@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+   <title>Creating a Custom Twitter Widget using Dijit</title>
+   <link rel="stylesheet" href="http://yui.yahooapis.com/2.8.0r4/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css">
+   <link rel="stylesheet" href="http://yui.yahooapis.com/2.7.0/build/base/base.css" type="text/css">     
+   <link rel="Stylesheet" href="custom/widget/css/widget.css" type="text/css" />
+   <style type="text/css">
+    h1 {
+    color: #000000;
+    font-size: 30px;
+    font-weight: bold;
+    left: 0px;
+    letter-spacing: 5px;
+    margin-bottom: 0;
+    position: relative;}
+    #ft {    letter-spacing: 5px;}
+   </style>
+   <script type="text/javascript">
+
+           var dojoConfig = (function(){
+               var base = location.href.split("/");
+                   base.pop();
+                   base = base.join("/") 
+                   return {
+                        async: true,
+                        isDubug: true,
+                        packages: [{
+                             name: "custom",
+                             location: base + "/custom"  
+                        }]
+                   } 
+           }());  
+   </script>
+   <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.7.1/dojo/dojo.js" data-dojo-config="async: true"></script>
+</head>
+<body class="yui-skin-sam">
+<div id="doc" class="yui-t7">
+   <div id="hd" role="banner"><h1>My Tweets</h1></div>
+   <div id="bd" role="main">
+    <div class="yui-u">
+
+       <div id="twitterbadge"></div>
+
+    </div>
+</div>
+   <div id="ft" role="contentinfo"><p>Created by @<a href="http://twitter.com/thinkphp">thinkphp</a></p></div>
+</div>
+
+   <script type="text/javascript">
+
+        require(["dojo/io/script","dojo/dom","dojo/_base/array","custom/widget"],function(jsonp,dom,util,Widget){
+
+             var container = dom.byId("twitterbadge"),
+                 jsonpArgs = {
+                  url: "http://twitter.com/statuses/user_timeline.json",
+                  callbackParamName: "callback",
+                  content: {
+                   screen_name: "thinkphp",
+                   count: 8
+                  },
+                  load: function(data){
+                    var tweets = [];
+                    util.forEach(data, function(tweet){
+                        tweet.text = tweet.text.replace(/((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/gi,'<a href="$1" target="_blank">$1<\/a>').replace(/@([a-zA-Z0-9_]+)/gi,'<a href="http://twitter.com/$1" target="_blank">@$1<\/a>').replace(/#([a-zA-Z0-9_]+)/gi,'<a href="http://search.twitter.com/search?q=%23$1" target="_blank">#$1<\/a>');
+                        new Widget({'name': tweet.user.name,'avatar':tweet.user.profile_image_url,'bio': tweet.text, date: tweet.created_at}).placeAt(container)
+                    });
+                  },
+                  error: function(error){
+                        container.innerHTML = "An unexpected error occurred: " + error;
+                  }
+             }
+             jsonp.get(jsonpArgs)
+        }); 
+
+   </script>
+</body>
+</html>
+
