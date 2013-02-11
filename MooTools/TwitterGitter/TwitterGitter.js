@@ -17,7 +17,7 @@ var TwitterGitter = new Class({
     },
 
     retrieve: function() {
-        new JsonP('http://twitter.com/statuses/user_timeline/' + this.username + '.json', {
+        new JsonP('http://api.twitter.com/1/statuses/user_timeline/' + this.username + '.json', {
                   data: {
                       count: this.options.count,
                       since_id: this.options.sinceID

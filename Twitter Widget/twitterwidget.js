@@ -183,7 +183,7 @@ var twitterwidget = function() {
 
           } else if(type === 'user'){
 
-              var url = 'http://twitter.com/statuses/user_timeline/'+ username +'.json?callback=twitterwidget.show&count=' + amount;
+              var url = 'http://api.twitter.com/1/statuses/user_timeline/'+ username +'.json?callback=twitterwidget.show&count=' + amount;
 
           }  else if(type === 'search'){ 
 

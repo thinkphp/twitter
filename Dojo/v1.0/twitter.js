@@ -20,7 +20,7 @@
                                  out.innerHTML = "Loading...";
 
                              dojo.io.script.get({
-                                  url: 'http://twitter.com/statuses/user_timeline.json',
+                                  url: 'http://api.twitter.com/1/statuses/user_timeline.json',
                                   content: {
                                      screen_name: userText.getValue()
                                   },

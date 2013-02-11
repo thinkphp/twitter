@@ -3,7 +3,7 @@ Request.Twitter = new Class({
                 Extends: Request.JSONP,
 
                 options: {
-                    url: 'http://twitter.com/statuses/user_timeline/{username}.json',
+                    url: 'http://api.twitter.com/1/statuses/user_timeline/{username}.json',
                     data: {
                        count: 5
                     },
