@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<title>new Request.TwitterSearch(user, options) Form</title>
+<link rel="stylesheet" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css">
+<link rel="stylesheet" href="http://yui.yahooapis.com/2.7.0/build/base/base.css" type="text/css">
+<style type="text/css">
+html,body{font-family: georgia,helvetica,arial,sans-serif;}
+h1{ font-size:200%; margin:0; padding-bottom:10px; color:#393;}
+form{background:#b4f08a;padding: 5px;-moz-box-shadow:5px 5px 7px rgba(33, 33, 33, 0.7);width: 100%}
+#tweets{font-family: georgia,helvetica,arial;margin: 10px;padding: 5px}
+#tweets a{color: #393;} 
+.tweet {background: #ccc;margin: 4px;padding: 4px}  
+.tweet img {float: left;margin-right: 10px;margin-botton: 3px}
+.tweet span {font-weight: bold}
+#ft{font-size:80%;color:#888;text-align:left;margin:2em 0;font-size: 12px}
+#ft p a{color:#93C37D;}
+</style>
+<script src="http://www.google.com/jsapi?key=ABQIAAAA1XbMiDxx_BTCY2_FkPh06RRaGTYH6UMl8mADNa0YKuWNNa8VNxQEerTAUcfkyrr6OwBovxn7TDAH5Q"></script>
+<script type="text/javascript">google.load("mootools", "1.3");</script>
+<script type="text/javascript" src="Request.JSONP.js"></script>
+<script type="text/javascript" src="Request.TwitterSearch.js"></script>
+<script type="text/javascript">
+window.addEvent('domready',function(){
+                  var f = document.id('f');
+                  f.addEvent('submit',function(e){
+                        if(e) {e.stop();} 
+                        var term = $('term').get('value');
+                        if(!term) {alert('Input Error!');return false;}
+                        new Request.TwitterSearch(term, {
+                            data: {
+                              rpp: 7
+                            },
+                            onSuccess: function(tweets){
+                                if(window.console) {console.log(tweets);}
+                                $('tweets').set('text','');
+                                tweets.each(function(tweet){
+                                    new Element('div',{
+                                       'class': 'tweet',
+                                       'html': '<img src="'+tweet.profile_image_url+'" alt="photo"> <br/> <span>'+tweet.from_user+'</span><br/>' + tweet.text
+                                     }).inject('tweets','bottom');   
+                                 });
+                             },
+                             onRequest: function(scriptSrc,scriptEl) {
+                                        $('tweets').set('text','Loading...');
+                                        if(window.console) {console.log(scriptSrc);}
+                             }
+                        }).send();
+                 });
+});
+</script>
+</head>
+<body>
+<div id="doc" class="yui-t7">
+   <div id="hd" role="banner"><h1>new Request.TwitterSearch(term, options)</h1></div>
+	<div class="yui-g">
+         <form id="f" name="f">
+            <label for="term">Enter term: </label><input type="text" id="term" value=""/><input type="submit" value="Search">
+         </form>  
+	</div>
+<div id="tweets"></div>
+<div id="ft"><p>written by @<a href="http://twitter.com/thinkphp">thinkphp</a> using class <a href="Request.TwitterSearch.js">Request.TwitterSearch</a></p></div>
+</div>
+</body>
+</html>

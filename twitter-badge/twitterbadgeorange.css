@@ -1,0 +1,49 @@
+#twitterbadge{
+  border:1px solid orange;
+  width:300px;
+  padding:.5em;
+  margin:.5em;
+  background:#FFF3CD;
+  font-family:arial,sans-serif;
+}
+
+#twitterbadge *{
+  margin:0;
+  padding:0;
+  font-size:90%;
+  list-style:none;
+  line-height:1.3em;
+}
+
+#twitterbadge a{
+  color:orange;
+  text-decoration: none;
+}
+#twitterbadge a:hover{
+ text-decoration: underline;
+}
+#twitterbadge #twitterbadgeuser{
+  position:relative;
+  min-height:70px;
+  margin-top:.5em;
+}
+#twitterbadgeuser ul{
+  padding-left:70px;
+}
+#twitterbadge li{
+  margin-bottom:.5em;
+}
+#twitterbadge #twitterbadgetweets li{
+  border-bottom:1px solid #FFD44C;
+  padding-bottom:.5em;
+  margin-bottom:.5em;
+}
+#twitterbadge img{
+  border:1px solid orange;
+  padding:5px;
+  background:#fff;
+  position:absolute;
+}
+#twitterbadge #twitterbadgetweets{
+  clear:both;
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table xmlns="http://query.yahooapis.com/v1/schema/table.xsd">
+<meta>
+<sampleQuery>select * from twitter.translate where search="python" and language="en" and amount="10"</sampleQuery>
+<author>Adrian Statescu</author>
+<documentationURL>http://thinkphp.ro/apps/Twitter/twitter.translate.php</documentationURL>
+<description>twitter.translate table provides exactly what I needed: it searches Twitter for a specific word and adds a translation to the results. Adds a translation to every result of a Twitter search</description>
+</meta>
+<bindings>
+<select itemPath="json.results" produces="XML">
+<inputs>
+<key id="search" type="xs:string" paramType="variable" required="true" />
+<key id="language" type="xs:string" paramType="variable" required="true" />
+<key id="amount" type="xs:string" paramType="variable" required="true" />
+</inputs>
+<execute><![CDATA[
+var tweets = y.query('select * from json where url="http://search.twitter.com/search.json?q='+search+'&rpp='+amount+'"').results.json;
+var rows = tweets;
+for each(var result in rows.results) {
+    var text = result.text.toString(); 
+    var text = text.replace('\\','');
+    var trans = y.query('select * from google.translate where q="'+text+'" and target="'+language+'"');
+    var trans = trans.results.translatedText.toString();  
+    var trans = trans.replace('\\','');
+    result.trans += <translatedText>{trans}</translatedText>
+}
+response.object = rows;
+]]></execute>
+</select>
+</bindings>
+</table>

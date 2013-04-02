@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<title>new Request.TwitterGitter(user, options) Form</title>
+<link rel="stylesheet" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css">
+<link rel="stylesheet" href="http://yui.yahooapis.com/2.7.0/build/base/base.css" type="text/css">
+<style type="text/css">
+html,body{font-family: georgia,helvetica,arial,sans-serif;}
+h1{ font-size:200%; margin:0; padding-bottom:10px; color:#393;}
+form{background:#b4f08a;padding: 5px;-moz-box-shadow:5px 5px 7px rgba(33, 33, 33, 0.7);width: 100%}
+	#tweets	{ margin: 20px 0 0 0; }
+	.tweet	{ padding:5px 10px; height:58px; clear:both; margin:5px 0; background:#eee; }
+	.tweet img	{ margin-right:10px; }
+	.tweet strong	{ color:navy; }
+	.tweet span	{ font-size:11px; color:#666; }
+	.clear	{ clear:both; }
+#ft{font-size:80%;color:#888;text-align:left;margin:2em 0;font-size: 12px}
+#ft p a{color:#93C37D;}
+</style>
+<script src="http://www.google.com/jsapi?key=ABQIAAAA1XbMiDxx_BTCY2_FkPh06RRaGTYH6UMl8mADNa0YKuWNNa8VNxQEerTAUcfkyrr6OwBovxn7TDAH5Q"></script>
+<script type="text/javascript">google.load("mootools", "1.3");</script>
+<script type="text/javascript" src="JsonP.js"></script>
+<script type="text/javascript" src="TwitterGitter.js"></script>
+<script type="text/javascript">
+window.addEvent('domready',function(){
+                  var f = document.id('f');
+                  f.addEvent('submit',function(e){
+                        if(e) {e.stop();} 
+                        var user = $('user').get('value');
+                        if(!user) {alert('Input Error!');return false;}
+                        new TwitterGitter('codepo8',{
+                            count: 5,
+                            onComplete: function(tweets, user) {
+                                 $('tweets').set('text','');
+                                 if(window.console) {console.log(tweets);console.log(user);}
+                                 tweets.each(function(tweet,index){
+                                    new Element('div',{
+                                       html: '<img src="'+user.profile_image_url+'" align="left" alt="" /> <strong>'+ user.name +'</strong><br/>'+
+                                       tweet.text + '<br/><span>' + tweet.created_at + ' via ' + tweet.source.replace('\\','') + '</span>',
+                                       'class': 'tweet clear'
+                                    }).inject('tweets');
+                                 });  
+                            },
+                            onRequest: function() {
+                                 $('tweets').set('text','Loading...'); 
+                            }
+                        }).retrieve(); 
+                 });
+});
+</script>
+</head>
+<body>
+<div id="doc" class="yui-t7">
+   <div id="hd" role="banner"><h1>new TwitterGitter(user, options)</h1></div>
+	<div class="yui-g">
+         <form id="f" name="f">
+         <label for="user">Enter user: </label><input type="text" id="user" value=""/><input type="submit" value="Search">
+         </form>  
+         <div id="tweets"></div>
+	</div>
+<div id="ft"><p>written by @<a href="http://twitter.com/thinkphp">thinkphp</a> using class <a href="TwitterGitter.js">TwitterGitter</a></p></div>
+</div>
+</body>
+</html>

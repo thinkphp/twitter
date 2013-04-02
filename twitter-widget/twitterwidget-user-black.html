@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Twitter Widget</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <style type="text/css">
+  html,body{background: #111;}
+  a.next{color: #ccc;margin-left: 300px}
+  #twitter {margin: 40px 0 0 300px}
+  h1{font-family: arial,verdana,sans-serif;font-size: 50px;color: #ccc;font-weight: bold;padding-left: 300px;}
+  </style>
+</head>
+<body>
+<h1>Twitter Widget</h1>
+<!-- start twitter -->
+<div id="twitter" class="twtr-widget twtr-widget-profile amount-10 skin-black user-thinkphp type-user">
+      <div class="twtr-doc" style="width: 350px">
+                <div class="twtr-hd" id="twtr-hd">
+                      <div class='twtr-spinner twtr-inactive'></div>
+                </div>
+                <div class="twtr-bd" id="twtr-bd">
+                      <div class="twtr-timeline" style="height: 155px" id="twtr-timeline"></div>
+                </div>
+                <div class="twtr-ft" id="twtr-ft">
+                </div>
+      </div> 
+</div>
+<script type="text/javascript" src="twitterwidget.js"></script>
+<script type="text/javascript">twitterwidget.init({title: 'what\'s going on in',caption: 'Adrian\'s word'});</script>
+<!-- end twitter -->
+<a class="next" href="twitterwidget-user-blue.html">twitter widget skin blue</a><br/>
+<a class="next" href="twitterwidget-friends-black.html">twitter widget friends skin black</a><br/>
+<a class="next" href="twitterwidget-friends-blue.html">twitter widget friends skin blue</a><br/>
+<a class="next" href="twitterwidget-search-blue.html">twitter widget search skin blue</a><br/>
+<a class="next" href="twitterwidget-search-black.html">twitter widget search skin black</a>
+</body>
+</html>
